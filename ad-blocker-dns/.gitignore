@@ -1,0 +1,11 @@
+# vagrant
+.vagrant
+
+# vscode
+.vscode
+
+# docker
+.docker
+
+# env
+.env
