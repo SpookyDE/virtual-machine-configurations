@@ -19,5 +19,5 @@ Vagrant.configure("2") do |config|
   end
 
   # Provisionierung
-  config.vm.provision "shell", path: "scripts/provision.sh", privileged: true, name:"ansible"
+  config.vm.provision "shell", path: "scripts/install_ansible.sh", privileged: true, name:"ansible"
 end
