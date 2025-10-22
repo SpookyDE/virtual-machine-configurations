@@ -1,0 +1,23 @@
+Vagrant.configure("2") do |config|
+  # Basis-Image
+  config.vm.box = "ubuntu/jammy64"
+
+  # VM-Name und Hostname
+  config.vm.hostname = "ansible-controller"
+
+  # Netzwerk (optional: statische IP)
+  config.vm.network "private_network", ip: "192.168.56.10"
+
+  # Gemeinsamer Ordner für Ansible-Projekte
+  config.vm.synced_folder "./ansible", "/home/vagrant/ansible", create: true
+
+  # Ressourcen
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "ansible-controller"
+    vb.memory = 2048
+    vb.cpus = 2
+  end
+
+  # Provisionierung
+  config.vm.provision "shell", path: "scripts/provision.sh", privileged: true, name:"ansible"
+end
