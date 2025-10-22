@@ -5,6 +5,8 @@ set -eux
 sudo systemctl disable systemd-resolved
 sudo systemctl stop systemd-resolved || true
 
+echo -e "nameserver 1.1.1.1\nnameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+
 # directories for pihole
 mkdir -p /opt/pihole/etc-pihole /opt/pihole/etc-dnsmasq.d
 cd /opt/pihole
